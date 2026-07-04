@@ -120,6 +120,67 @@ button:hover {
   transform: scale(1.05);
 }
 
+/* Modal Container*/
+.modal-container{
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(169, 164, 164, 0.75);
+  width: 100%;
+  height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal{
+  background-color: white;
+  max-width: 650px;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 8px;
+
+  display: flex;
+  flex-direction: column;
+}
+@media (max-width: 690px){
+  .modal{
+    width: 90%;
+    margin: auto;
+  }
+}
+/* Modal Content */
+.modal img{
+  align-self: center;
+  object-fit: contain;
+  width:fit-content;
+  height:fit-content;
+  max-width: 620px;
+  max-height: 450px;
+  border-radius: 6px;
+}
+
+.modal h3{
+  font-family: 'Inter', Helvetica, sans-serif;
+  margin-top: 10px;
+}
+
+.modal .date{
+  font-weight: 300;
+  font-size: 0.95rem;
+}
+
+.modal .explanation{
+  max-height: 225px;
+  overflow-y: auto;
+  padding: 10px 5px;
+  border: 1px solid gainsboro;
+}
+
+.modal p{
+  font-family: Helvetica, 'Inter','Public Sans', 'DM Mono';
+  margin: 5px 0;
+}
 
 /* Three columns on wider screens */
 @media (min-width: 1000px) {

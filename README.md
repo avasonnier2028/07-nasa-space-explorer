@@ -12,21 +12,21 @@ You'll get to use your skills to build something that's actually connected to re
 
 ## Tasks
 - [x] Fetch Correct Data
-- [ ] Display Gallery
+- [x] Display Gallery
   - [x] 9 Items
   - [x] Image
   - [x] Title
   - [x] Date
-- [ ] Modal View
-  - [ ] Full Image
-  - [ ] Title
-  - [ ] Date
-  - [ ] Explanation
+- [x] Modal View
+  - [x] Full Image
+  - [x] Title
+  - [x] Date
+  - [x] Explanation
 - [ ] NASA Styling
   - [x] Fonts
   - [ ] Colors
 - [ ] Loading Message
-- [ ] **(BONUS)** Video Entries
+- [x] **(BONUS)** Video Entries
   - Embedded or as a Link
 - [ ] **(BONUS)** Random Space Fact
 - [x] **(BONUS)** Hover Zoom Effect on Gallery Images

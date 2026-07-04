@@ -3,6 +3,7 @@ const startInput = document.getElementById('startDate');
 const endInput = document.getElementById('endDate');
 const btn = document.getElementById('btnGetImages');
 const gallery = document.getElementById('gallery');
+const modalGallery = document.getElementById('modal-gallery');
 
 // Call the setupDateInputs function from dateRange.js
 // This sets up the date pickers to:
@@ -18,30 +19,64 @@ async function getImages(){
   const api_key = "aDnf3eLX6XiFUmZd0YVnzbo3nxofWePJhCRvumUI";
   const url = `https://api.nasa.gov/planetary/apod?api_key=${api_key}&start_date=${startInput.value}&end_date=${endInput.value}`
 
+  //Get API Request
   const response = await fetch(url);
   const data = await response.json();
 
   const options = { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' };
   gallery.innerHTML = "";
+  modalGallery.innerHTML = "";
+  //Add All Images/Videos in Date Range to Gallery
   data.forEach(element => {
     const date = new Date(element.date);
+
     let gallery_item = document.createElement('div');
     gallery_item.className = 'gallery-item';
+
+    let modal_item = document.createElement('div');
+    modal_item.className = 'modal-container';
+
     if(element.media_type === "image"){
       gallery_item.innerHTML =
         `<img src="${element.url}"/>
          <h3>${element.title}</h3>
          <p>${date.toLocaleDateString('en-US', options)}</p>`;
+
+      modal_item.innerHTML = `
+      <div class="modal">
+        <img src="${element.hdurl}" alt=${element.title}/>
+        <h3>${element.title}</h3>
+        <p class="date">${date.toLocaleDateString('en-US', options)}</p>
+        <p class="explanation">${element.explanation}</p>
+      </div>`;
     }else{
       gallery_item.innerHTML =
-        `<video src="${element.url}"/>
+        `<video src="${element.url}"></video>
          <h3>${element.title}</h3>
          <p>${date.toLocaleDateString('en-US', options)}</p>`;
+
+      modal_item.innerHTML = `
+      <div class="modal">
+         <video src="${element.url}" alt=${element.title} autoplay muted controls loop>
+         </video>
+         <h3>${element.title}</h3>
+         <p class="date">${date.toLocaleDateString('en-US', options)}</p>
+         <p class="explanation">${element.explanation}</p>
+      </div>`;
     }
-    
-    gallery.appendChild(gallery_item);
+
+    gallery_item.addEventListener('click', ()=>{
+      modal_item.style.display = 'flex';
+    })
+    modal_item.addEventListener('click', (event)=>{
+      modal_item.style.display = 'none';
+    })
+
+    gallery.appendChild(gallery_item); 
+    modalGallery.appendChild(modal_item);
   });
   
+
   /* FORMAT:
   copyright: "Shingoo Lee" <- optional field if copyrighted
   date: "2026-06-26"
@@ -60,6 +95,27 @@ async function getImages(){
   title: "SDO Observes a Coronal Mass Ejection"
   url: "https://apod.nasa.gov/apod/image/2606/sdo_cme.mp4"
   */
+
+/* Modal Content Format
+<div id="modal" class="modal-container">
+    <div class="modal">
+      <video src="https://apod.nasa.gov/apod/image/2606/sdo_cme.mp4" alt="SDO Observes a Coronal Mass Ejection" autoplay
+        muted controls loop>
+      </video>
+      <h3>SDO Observes a Coronal Mass Ejection</h3>
+      <p class="date">2026-06-24</p>
+      <p class="explanation">Why does the Sun throw stuff at us? The Sun’s surface is a churning soup of energetic
+        electrons and ions called plasma. The motion of those charged particles creates magnetic field loops that are
+        larger than the Earth. These loops twist, turn, and trap plasma. The featured time-lapse, taken over 2 hours on
+        April 24th, 2026 by the Solar Dynamics Observatory, shows what happens when those magnetic fields become too
+        stressed: they snap and expel billions of tons (trillions of kilograms) of plasma into space at millions of miles
+        (or kilometers) per hour in what is called a coronal mass ejection (CME). The Sun releases a few CMEs each day
+        when it is at the peak of its activity cycle, which passed in 2025. Some of these eruptions hit Earth and can
+        disrupt power grids, disable satellites, and endanger astronauts, which is why space weather monitoring is so
+        important.</p>
+    </div>
+  </div>
+*/
 } 
 
 
