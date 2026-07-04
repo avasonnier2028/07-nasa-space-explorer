@@ -5,7 +5,17 @@
 const earliestDate = '1995-06-16';
 
 // Get today's date in YYYY-MM-DD format (required by date inputs)
-const today = new Date().toISOString().split('T')[0];
+function localISOString(d){
+  const year = d.getFullYear();
+  let month = String(d.getMonth() + 1);
+  month = (month.padStart(2, "0"));
+  let day = String(d.getDate());
+  day = day.padStart(2, "0");
+  return year + "-" + month + "-" + day;
+  console.log(fullDate);
+}
+const today = localISOString(new Date());
+
 
 function setupDateInputs(startInput, endInput) {
   // Restrict date selection range from NASA's first image to today
@@ -17,7 +27,7 @@ function setupDateInputs(startInput, endInput) {
   // Default: Show the most recent 9 days of space images
   const lastWeek = new Date();
   lastWeek.setDate(lastWeek.getDate() - 8); // minus 8 because it includes today
-  startInput.value = lastWeek.toISOString().split('T')[0];
+  startInput.value = localISOString(lastWeek);
   endInput.value = today;
 
   // Automatically adjust end date to show exactly 9 days of images

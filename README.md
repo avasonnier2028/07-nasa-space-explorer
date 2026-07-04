@@ -11,25 +11,25 @@ You'll get to use your skills to build something that's actually connected to re
 - All your custom JavaScript should go in `script.js`. That's where you'll write the code that fetches data and displays your gallery.
 
 ## Tasks
-- [ ] Fetch Correct Data
+- [x] Fetch Correct Data
 - [ ] Display Gallery
-  - [ ] 9 Items
-  - [ ] Image
-  - [ ] Title
-  - [ ] Date
+  - [x] 9 Items
+  - [x] Image
+  - [x] Title
+  - [x] Date
 - [ ] Modal View
   - [ ] Full Image
   - [ ] Title
   - [ ] Date
   - [ ] Explanation
 - [ ] NASA Styling
-  - [ ] Fonts
+  - [x] Fonts
   - [ ] Colors
 - [ ] Loading Message
 - [ ] **(BONUS)** Video Entries
   - Embedded or as a Link
 - [ ] **(BONUS)** Random Space Fact
-- [ ] **(BONUS)** Hover Zoom Effect on Gallery Images
+- [x] **(BONUS)** Hover Zoom Effect on Gallery Images
 
 ## Rubric
 |Criteria|Requirements|Pts|
