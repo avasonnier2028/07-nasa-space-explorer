@@ -110,14 +110,34 @@ button:hover {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: all 100ms ease;
+  
 }
 .gallery-item h3{
   margin-top: 10px;
 }
+.img-container{
+  overflow: hidden;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.img-container img {
+  transition: all 400ms ease;
+  object-fit: cover;
+  width: 100%;
+}
+.img-container:hover img{
+  transform: scale(1.25);
+}
 
-.gallery-item:hover{
-  transform: scale(1.05);
+.img-container video {
+  transition: all 400ms ease;
+  object-fit: cover;
+  width: 100%;
+}
+.img-container:hover video{
+  transform: scale(1.25);
 }
 
 /* Modal Container*/

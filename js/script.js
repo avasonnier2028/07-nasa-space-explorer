@@ -57,10 +57,10 @@ async function getImages(){
   const api_key = "aDnf3eLX6XiFUmZd0YVnzbo3nxofWePJhCRvumUI";
   const url = `https://api.nasa.gov/planetary/apod?api_key=${api_key}&start_date=${startInput.value}&end_date=${endInput.value}`
 
-  gallery.innerHTML = "<p>Loading...</p>";
+  gallery.innerHTML = "<p>🔄 Loading space photos…</p>";
   //Get API Request
   const response = await fetch(url);
-  gallery.innerHTML = "<p>Almost there...</p>";
+  gallery.innerHTML = "<p>🔄 Almost there...</p>";
   const data = await response.json();
 
   const options = { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' };
@@ -78,7 +78,9 @@ async function getImages(){
 
     if(element.media_type === "image"){
       gallery_item.innerHTML =
-        `<img src="${element.url}"/>
+        `<div class="img-container">
+          <img src="${element.url}" alt="${element.title}"/>
+         </div>
          <h3>${element.title}</h3>
          <p>${date.toLocaleDateString('en-US', options)}</p>`;
 
@@ -91,7 +93,9 @@ async function getImages(){
       </div>`;
     }else{
       gallery_item.innerHTML =
-        `<video src="${element.url}"></video>
+        `<div class="img-container">
+          <video src="${element.url}"></video>
+         </div>
          <h3>${element.title}</h3>
          <p>${date.toLocaleDateString('en-US', options)}</p>`;
 

@@ -22,9 +22,9 @@ You'll get to use your skills to build something that's actually connected to re
   - [x] Title
   - [x] Date
   - [x] Explanation
-- [ ] NASA Styling
+- [x] NASA Styling
   - [x] Fonts
-  - [ ] Colors
+  - [x] Colors
 - [x] Loading Message
 - [x] **(BONUS)** Video Entries
   - Embedded or as a Link
