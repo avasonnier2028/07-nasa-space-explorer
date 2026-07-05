@@ -25,10 +25,10 @@ You'll get to use your skills to build something that's actually connected to re
 - [ ] NASA Styling
   - [x] Fonts
   - [ ] Colors
-- [ ] Loading Message
+- [x] Loading Message
 - [x] **(BONUS)** Video Entries
   - Embedded or as a Link
-- [ ] **(BONUS)** Random Space Fact
+- [x] **(BONUS)** Random Space Fact
 - [x] **(BONUS)** Hover Zoom Effect on Gallery Images
 
 ## Rubric

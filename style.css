@@ -182,6 +182,41 @@ button:hover {
   margin: 5px 0;
 }
 
+/* Fun Fact */
+#fact-container{
+  font-family:  'DM Mono', sans-serif;
+  font-weight: normal;
+  color: #666;
+  background-color: white;
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  line-height: 1.4;
+  max-width: 500px;
+
+  display: none;
+}
+
+.divider{
+  background-color: #212121;
+  height: 1px;
+  margin: 5px 0 12px;
+}
+
+@media (max-width: 599px) {
+  #fact-container{
+    margin: 0 20px;
+    max-width: 600px;
+  }
+}
+@media (min-width: 1000px){
+  #fact-container{
+    max-width: 1500px;
+    margin: 0 38px;
+  }
+}
+
 /* Three columns on wider screens */
 @media (min-width: 1000px) {
   .gallery-item {
